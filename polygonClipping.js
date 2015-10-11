@@ -32,7 +32,21 @@ function  isClockwise(ring) {
     p3.y = ring[p1_index+1].y;
 
     var v1 = {};
-    var v2 = {}
-
+    var v2 = {};
     
+    v1.x = p1.x - p2.x;
+    v1.y = p1.y - p2.y;
+
+    v2.x = p3.x - p1.x;
+    v2.y = p3.x - p1.y;
+
+    var cross_jion_z = v1.x*v2.y - v1.y*v2.x;
+    if(cross_jion_z > 0)
+    {
+    	return true;
+    }
+    else
+    {
+    	return false;
+    }
 }
