@@ -1,0 +1,23 @@
+<html>
+	<head>
+	    <link href="simple.css" rel="stylesheet" type="text/css"/>
+	    <script type="text/javascript" src="./lib/jquery-1.6.4.js"></script>
+	</head>
+	<body>
+	<div class = "btn_display">
+	    <button id = 'new_button'>new</button>
+	    <button id = 'outer_done_button'>outer ring done</button>
+	    <button id = 'inner_button'>inner ring</button>
+	    <button id = 'inner_done_button'>inner ring done</button>
+	</div>
+	<div class = "btn_display">
+		color(#FFFFFF):<input type="text" id = "poly_color"/>
+		<button id = 'poly_done'>polygon done</button>
+		<button id= "clip">clipping</button>
+	</div>
+		<canvas id = "my_canvas" width='2000' height='1000'></canvas>
+		<script type="text/javascript" src="./polygon.js"></script>
+		<script type="text/javascript" src="./polygonClipping.js"></script>
+		<script type="text/javascript" src="./color.js"></script>
+	</body>
+</html>
