@@ -1,7 +1,7 @@
 var netvalue;
 var may,miy;
 //color #FF6A6A
-function polyfill(polygon, color)
+function polyfill(polygon)
 {
 	var aet = [];
 	var net = [];
@@ -35,14 +35,15 @@ function polyfill(polygon, color)
     }
     
     //console.log(all_points_set);
-    var imgData=my_context.createImageData(1,1);
+    /*var imgData=my_context.createImageData(1,1);
     //imgData.data[0] = 255;
     //imgData.data[1] = 106;
     //imgData.data[2] = 106;
     imgData.data[3] = 255;
     imgData.data[0] = color[0];
     imgData.data[1] = color[1];
-    imgData.data[2] = color[2];
+    imgData.data[2] = color[2];*/
+    
 
     for(var i = min_y; i <= max_y; i++)
     {
@@ -97,9 +98,13 @@ function polyfill(polygon, color)
             var k = 0;
             while(k < new_scan_lines.length && k >= 0)
             {
-                if(new_scan_lines[k][0] >= p_low.x)
+                if(new_scan_lines[k][0] > p_low.x)
                 {
                 	break;
+                }
+                else if(new_scan_lines[k][0] == p_low.x && new_scan_lines[k][1] > scan_side[1])
+                {
+                    break;
                 }
                 else
                 {
@@ -111,6 +116,8 @@ function polyfill(polygon, color)
         
         //console.log(new_scan_lines);
         aet.push(new_scan_lines);
+        
+        //my_context.strokeStyle=color;
 
         for(var j = 0; j+1 < new_scan_lines.length; j+=2)
         {
@@ -122,14 +129,21 @@ function polyfill(polygon, color)
                 max_x = new_scan_lines[j][0];
                 min_x = new_scan_lines[j+1][0];
         	}
+            /*
             for(var w = min_x + 1; w < max_x; w++)
             {
             	
                 my_context.putImageData(imgData,w,i+min_y);
+            }*/
+            if(max_x > min_x + 1){
+                my_context.moveTo(min_x+1,i+min_y);
+                my_context.lineTo(max_x-1,i+min_y);
             }
+            
         }
     }
-
+    //my_context.stroke();
+    //my_context.strokeStyle="#8B8B7A";
     //console.log(aet);
 }
 
