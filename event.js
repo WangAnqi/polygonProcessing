@@ -113,13 +113,21 @@ $('body').keydown(function(event){
  }
  if(event.which == 187) //=
  {
- 	scale_all_poly(1.001);
+ 	scale_all_poly(1.1);
  	draw_polygons();
+ 	draw_center();
  }
  if(event.which == 189) //-
  {
- 	scale_all_poly(0.009);
+ 	scale_all_poly(0.9);
  	draw_polygons();
+ 	draw_center();
+ }
+ if(event.which == 84) // t
+ {
+ 	turn_all_poly();
+ 	draw_polygons();
+ 	draw_center();
  }
 });
 
@@ -156,6 +164,7 @@ $('body').keydown(function(event){
             //var delta = Math.max(-1, Math.min(1, value));
             //console.log(delta < 0 ? 'down' : 'up');
             draw_polygons();
+            draw_center()
         }
  
         EventUtil.addHandler(document, 'mousewheel', handleMouseWheel);

@@ -1,11 +1,42 @@
+function turn_all_poly()
+{
+	//var ref_point = {};
+    //ref_point.x =  / 2;
+    //ref_point.y =  / 2;
+
+    var turn_args = [];
+    turn_args.push(my_canvas.width);
+    turn_args.push(my_canvas.height);
+    
+    for(var i = 0; i < all_polygons.length; i++)
+	{
+        turn_poly(turn_args,all_polygons[i].outer_points);
+        for(var j = 0; j < all_polygons[i].inner_rings.length; j++)
+        {
+        	turn_poly(turn_args,all_polygons[i].inner_rings[j]);
+        }
+	}
+}
+function turn_poly(turn_args, points)//scale
+{
+	var tmp_x, tmp_y;
+    for(var i = 0; i < points.length; i++)
+    {
+        tmp_x = points[i].x;
+        tmp_y = points[i].y;
+
+        points[i].x = Math.ceil(turn_args[0] - tmp_x);
+        points[i].y = Math.ceil(turn_args[1] - tmp_y);
+    }
+}
+
+
 function scale_all_poly(scale)
 {
 	var ref_point = {};
     ref_point.x = my_canvas.width / 2;
     ref_point.y = my_canvas.height / 2;
    
-    
-
     var scale_args = [];
     scale_args.push(scale);
     scale_args.push(scale);

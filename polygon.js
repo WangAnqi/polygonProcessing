@@ -46,3 +46,16 @@ function draw_polygon(polygon_points){
 	    my_context.lineTo(polygon_points[j].x,polygon_points[j].y);
 	}
 }
+
+function draw_center()
+{
+    ref_point_x = my_canvas.width / 2;
+    ref_point_y = my_canvas.height / 2;
+
+    my_context.beginPath();
+    my_context.moveTo(0,ref_point_y);
+    my_context.lineTo(my_canvas.width,ref_point_y);
+    my_context.moveTo(ref_point_x,0);
+    my_context.lineTo(ref_point_x,my_canvas.height);
+    my_context.stroke();
+}
