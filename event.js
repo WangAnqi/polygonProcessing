@@ -37,6 +37,11 @@ $("#new_button").click(function(){
 		return;
 	}
 	else{
+		if(new_polygon_flag == 3 && inner_ring_flag == 0)
+        {
+        	all_polygons_color[all_polygons.length-1] = 1;
+        	draw_polygons();
+        }
         new_polygon_flag = 1;
 	}
 });
@@ -103,7 +108,9 @@ $("#poly_done").click(function(){
 });
 
 $("#clip").click(function(){
-    alert("Under construction.");
+    //alert("Under construction.");
+    all_polygon_Clipping();
+    draw_polygons();
 });
 
 $('body').keydown(function(event){

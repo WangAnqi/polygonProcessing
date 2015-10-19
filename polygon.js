@@ -30,7 +30,7 @@ function draw_polygons() {
         }
         
 
-        if(all_polygons_color[i] != undefined)
+        if(all_polygons_color[i] == 1)
         {
             polyfill(all_polygons[i]);
         }
